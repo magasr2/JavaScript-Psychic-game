@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="reset.css">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">;
+	<title>Pyschic Game</title>
+</head>
+
+<body class="body">
+<div class="row">
+<div class="col-lg-12 top-portion">
+<h1>Psychic Reading Game</h1>
+<img src="psychicpic.jpg" alt="psychic picture">
+</div>
+</div>
+
+<div class="row">
+	<div class="col-lg-12 center">
+<span>Computer Letter: <span id="computerLetter"></span></span><br />
+<span>Users Input:<span id="userInput"></span></span><br />
+<span>Number of wins:<span id="wins">0</span></span><br />
+<span>Number of losses:<span id="losses">0</span></span><br />
+<span>Number of attempts remaining:<span id="tries"></span></span><br />
+	</div>
+</div>
+
+
+</body>
+<script type="text/javascript">
+
+//Creates a variable that gives the user ten tries
+
+		var usersPoints = 0;
+		var compPoints = 0;
+		var numberOfTries = 10;
+ 		var letters = ["a",'b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
+
+
+	alert("Pick a random letter to see if you got the same as the computer");
+	document.getElementById("tries").innerHTML = numberOfTries;
+
+ 	document.onkeyup = function(event) {
+
+ 		var usersInput = event.key;
+ 		
+ 		var rand = letters[Math.floor(Math.random() * letters.length)];
+ 		alert("The computer has picked " + rand);
+		var compInput = rand;
+
+	if(usersInput === rand){
+
+		alert("Yay you got the same letter!");
+		//Displays the users input onto the screen
+ 		document.getElementById("userInput").innerHTML = usersInput;
+
+ 		document.getElementById("computerLetter").innerHTML = compInput;
+
+		usersPoints = usersPoints + 1;
+		document.getElementById("wins").innerHTML = usersPoints;
+		
+		numberOfTries = 10;
+		document.getElementById("tries").innerHTML = numberOfTries;
+		
+	} else {
+
+		alert("Not the same letter, pick again.");
+		//Displays the users input onto the screen
+ 		document.getElementById("userInput").innerHTML = usersInput;
+
+ 		document.getElementById("computerLetter").innerHTML = compInput;
+
+		compPoints = compPoints + 1;
+		document.getElementById("losses").innerHTML = compPoints;
+		numberOfTries = numberOfTries - 1;
+		document.getElementById("tries").innerHTML = numberOfTries;
+		//Displays the computers input onto the screen
+ 		document.getElementById("computerLetter").innerHTML = rand;
+
+ 		if(numberOfTries === 0){
+ 			alert("You have run out of attempts, you lose! Lets play again.")
+ 			usersPoints = 0;
+			compPoints = 0;
+			numberOfTries = 10;
+			document.getElementById("userInput").innerHTML = usersInput;
+			document.getElementById("tries").innerHTML = numberOfTries;
+			document.getElementById("losses").innerHTML = compPoints;
+ 		};
+		}	
+	};
+
+
+
+
+
+
+	
+	
+
+</script>
+</html>

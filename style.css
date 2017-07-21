@@ -1,0 +1,33 @@
+.body{
+	background-color:black;
+}
+
+.top-portion{
+	background-color:darkcyan;
+	padding: 50px 0;
+}
+
+h1{
+	text-align:center;
+	font-family:"Times News Roman",Arial,Helvetica;
+	font-size:25px;
+	color:black;
+	padding:0;
+	margin:0;
+	top:0;
+}
+
+img{
+	margin-left:33%;
+	box-shadow: 10px 10px 30px grey;
+}
+
+.center{
+	background-color:darkcyan;
+	font-family:"Times News Roman",Arial,Helvetica;
+	font-size:20px;
+	text-align:center;
+	padding-top:20px;
+	padding-bottom:20px;
+	margin-top:15px;
+}
